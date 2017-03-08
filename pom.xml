@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <properties>
+        <project.encoding>UTF-8</project.encoding>
+
+        <spring.version>4.3.2.RELEASE</spring.version>
+        <spring.core.version>4.3.2.1</spring.core.version>
+        <spring.amqp.version>1.6.0.RELEASE</spring.amqp.version>
+        <aliyun.openservices.version>1.2.3</aliyun.openservices.version>
+        <rabbitmq.version>3.5.6</rabbitmq.version>
+        <activemq.core.version>5.7.0</activemq.core.version>
+        <activemq.client.version>5.11.1</activemq.client.version>
+        <cat.monitor.version>0.0.6</cat.monitor.version>
+        <log4j.version>1.2.17</log4j.version>
+        <lombok.version>1.16.4</lombok.version>
+        <alibaba.dubbo.version>2.8.4</alibaba.dubbo.version>
+        <zkclient.version>0.1</zkclient.version>
+        <el.api.version>2.2</el.api.version>
+        <hessian.version>4.0.7</hessian.version>
+        <log4j-2.version>2.0</log4j-2.version>
+        <log4j-2.jdbc.version>1.16</log4j-2.jdbc.version>
+        <syd.project.version>1.0.0-SNAPSHOT</syd.project.version>
+    </properties>
+    <parent>
+        <groupId>com.mobanker.framework</groupId>
+        <artifactId>mobanker-framework</artifactId>
+        <version>2.1.7-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.mobanker.shanyidai.syd-api</groupId>
+    <artifactId>mobanker_shanyidai_api</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>com.mobanker.shanyidai</name>
+
+    <modules>
+        <module>shanyidai_api</module>
+        <module>shanyidai_business</module>
+        <module>shanyidai_service</module>
+        <module>shanyidai_common</module>
+        <!--<module>shanyidai_dubbo</module>-->
+    </modules>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.mobanker.shanyidai.syd-service</groupId>
+            <artifactId>syd_dubbo_service</artifactId>
+            <version>${syd.project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.mobanker.framework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.core.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mobanker.framework</groupId>
+            <artifactId>mobanker-fx-ee</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.mobanker.framework</groupId>
+                    <artifactId>mobanker-fx-kafka</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.mobanker.framework</groupId>
+                    <artifactId>mobanker-fx-rabbitmq</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.caucho</groupId>
+            <artifactId>hessian</artifactId>
+            <version>${hessian.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.aliyun.openservices</groupId>
+            <artifactId>aliyun-openservices</artifactId>
+            <version>${aliyun.openservices.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.amqp</groupId>
+            <artifactId>spring-amqp</artifactId>
+            <version>${spring.amqp.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.rabbitmq</groupId>
+            <artifactId>amqp-client</artifactId>
+            <version>${rabbitmq.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-client</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>net.dubboclub</groupId>
+            <artifactId>cat-monitor</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j-2.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j-2.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-1.2-api</artifactId>
+            <version>${log4j-2.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bgee.log4jdbc-log4j2</groupId>
+            <artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
+            <version>${log4j-2.jdbc.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring</artifactId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>slf4j-api</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>spring-web</artifactId>
+                    <groupId>org.springframework</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>spring-context</artifactId>
+                    <groupId>org.springframework</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>spring-aop</artifactId>
+                    <groupId>org.springframework</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>spring-expression</artifactId>
+                    <groupId>org.springframework</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>log4j</artifactId>
+                    <groupId>log4j</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>httpcore</artifactId>
+                    <groupId>org.apache.httpcomponents</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>spring-beans</artifactId>
+                    <groupId>org.springframework</groupId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.sgroschupf</groupId>
+            <artifactId>zkclient</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>el-api</artifactId>
+            <version>${el.api.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <!--<build>-->
+        <!--<plugins>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-surefire-plugin</artifactId>-->
+                <!--<configuration>-->
+                    <!--<skip>true</skip>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+        <!--<pluginManagement>-->
+
+            <!--<plugins>-->
+                <!--&lt;!&ndash; resource插件, 设定编码 &ndash;&gt;-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-resources-plugin</artifactId>-->
+                    <!--<configuration>-->
+                        <!--<includeEmptyDirs>true</includeEmptyDirs>-->
+                        <!--<encoding>${project.encoding}</encoding>-->
+                    <!--</configuration>-->
+                <!--</plugin>-->
+
+                <!--&lt;!&ndash; jar相关插件 &ndash;&gt;-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-jar-plugin</artifactId>-->
+                    <!--&lt;!&ndash;<version>3.0.2</version>&ndash;&gt;-->
+                    <!--<configuration>-->
+                        <!--<archive>-->
+                            <!--<manifest>-->
+                                <!--&lt;!&ndash;<addClasspath>true</addClasspath>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<classpathPrefix>lib/</classpathPrefix>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<mainClass>com.mobanker.shanyidai.api.application.Server</mainClass>&ndash;&gt;-->
+                                <!--<addDefaultImplementationEntries>true</addDefaultImplementationEntries>-->
+                                <!--<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>-->
+                            <!--</manifest>-->
+                        <!--</archive>-->
+                    <!--</configuration>-->
+                <!--</plugin>-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-shade-plugin</artifactId>-->
+                    <!--<version>2.3</version>-->
+                    <!--<executions>-->
+                        <!--<execution>-->
+                            <!--<phase>package</phase>-->
+                            <!--<goals>-->
+                                <!--<goal>shade</goal>-->
+                            <!--</goals>-->
+                            <!--<configuration>-->
+                                <!--<transformers>-->
+                                    <!--<transformer-->
+                                            <!--implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />-->
+                                    <!--<transformer-->
+                                            <!--implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">-->
+                                        <!--<mainClass>com.mobanker.shanyidai.api.application.Server</mainClass>-->
+                                    <!--</transformer>-->
+                                    <!--<transformer-->
+                                            <!--implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">-->
+                                        <!--<resource>META-INF/spring.handlers</resource>-->
+                                    <!--</transformer>-->
+                                    <!--<transformer-->
+                                            <!--implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">-->
+                                        <!--<resource>META-INF/spring.schemas</resource>-->
+                                    <!--</transformer>-->
+                                <!--</transformers>-->
+                            <!--</configuration>-->
+                        <!--</execution>-->
+                    <!--</executions>-->
+                <!--</plugin>-->
+                <!--&lt;!&ndash; clean插件 &ndash;&gt;-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-clean-plugin</artifactId>-->
+                <!--</plugin>-->
+
+                <!--&lt;!&ndash; install插件 &ndash;&gt;-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-install-plugin</artifactId>-->
+                <!--</plugin>-->
+
+                <!--&lt;!&ndash; deploy插件 &ndash;&gt;-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-deploy-plugin</artifactId>-->
+                <!--</plugin>-->
+
+                <!--&lt;!&ndash; dependency插件 &ndash;&gt;-->
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-dependency-plugin</artifactId>-->
+                <!--</plugin>-->
+
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-source-plugin</artifactId>-->
+                    <!--<executions>-->
+                        <!--<execution>-->
+                            <!--<id>attach-sources</id>-->
+                            <!--<phase>verify</phase>-->
+                            <!--<goals>-->
+                                <!--<goal>jar-no-fork</goal>-->
+                            <!--</goals>-->
+                        <!--</execution>-->
+                    <!--</executions>-->
+                <!--</plugin>-->
+
+                <!--<plugin>-->
+                    <!--<groupId>org.apache.maven.plugins</groupId>-->
+                    <!--<artifactId>maven-assembly-plugin</artifactId>-->
+                    <!--<version>2.3</version>-->
+                    <!--<configuration>-->
+                        <!--<appendAssemblyId>false</appendAssemblyId>-->
+                        <!--<descriptorRefs>-->
+                            <!--<descriptorRef>jar-with-dependencies</descriptorRef>-->
+                        <!--</descriptorRefs>-->
+                        <!--<archive>-->
+                            <!--<manifest>-->
+                                <!--<mainClass>com.mobanker.shanyidai.api.application.Server</mainClass>-->
+                            <!--</manifest>-->
+                        <!--</archive>-->
+                    <!--</configuration>-->
+                    <!--<executions>-->
+                        <!--<execution>-->
+                            <!--<id>make-assembly</id>-->
+                            <!--<phase>package</phase>-->
+                            <!--<goals>-->
+                                <!--<goal>assembly</goal>-->
+                            <!--</goals>-->
+                        <!--</execution>-->
+                    <!--</executions>-->
+                <!--</plugin>-->
+
+            <!--</plugins>-->
+
+        <!--</pluginManagement>-->
+    <!--</build>-->
+    <!--<build>-->
+        <!--<finalName>shanyidai_api</finalName>-->
+        <!--<sourceDirectory>src/main/java</sourceDirectory>-->
+        <!--<resources>-->
+            <!--&lt;!&ndash; 控制资源文件的拷贝 &ndash;&gt;-->
+            <!--<resource>-->
+                <!--<directory>src/main/resources</directory>-->
+                <!--<targetPath>${project.build.directory}</targetPath>-->
+            <!--</resource>-->
+        <!--</resources>-->
+        <!--<plugins>-->
+            <!--&lt;!&ndash; 设置源文件编码方式 &ndash;&gt;-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-compiler-plugin</artifactId>-->
+                <!--<configuration>-->
+                    <!--&lt;!&ndash;<defaultLibBundleDir>lib</defaultLibBundleDir>&ndash;&gt;-->
+                    <!--<source>1.7</source>-->
+                    <!--<target>1.7</target>-->
+                    <!--<encoding>UTF-8</encoding>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+            <!--&lt;!&ndash; 打包jar文件时，配置manifest文件，加入lib包的jar依赖 &ndash;&gt;-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-jar-plugin</artifactId>-->
+                <!--<configuration>-->
+                    <!--<archive>-->
+                        <!--<manifest>-->
+                            <!--<addClasspath>true</addClasspath>-->
+                            <!--<classpathPrefix>lib/</classpathPrefix>-->
+                            <!--<mainClass>com.mobanker.shanyidai.api.application.Server</mainClass>-->
+                        <!--</manifest>-->
+                    <!--</archive>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+            <!--&lt;!&ndash; 拷贝依赖的jar包到lib目录 &ndash;&gt;-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-dependency-plugin</artifactId>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>copy</id>-->
+                        <!--<phase>package</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>copy-dependencies</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<outputDirectory>-->
+                                <!--${project.build.directory}/lib-->
+                            <!--</outputDirectory>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+            <!--&lt;!&ndash; 解决资源文件的编码问题 &ndash;&gt;-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-resources-plugin</artifactId>-->
+                <!--<version>2.3</version>-->
+                <!--<configuration>-->
+                    <!--<encoding>UTF-8</encoding>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+            <!--&lt;!&ndash; 打包source文件为jar文件 &ndash;&gt;-->
+            <!--<plugin>-->
+                <!--<artifactId>maven-source-plugin</artifactId>-->
+                <!--<version>2.1</version>-->
+                <!--<configuration>-->
+                    <!--<attach>true</attach>-->
+                    <!--<encoding>UTF-8</encoding>-->
+                <!--</configuration>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<phase>compile</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>jar</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+    <!--</build>-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <!-- war插件, 设定war名称不带版本号 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.3</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>com.mobanker.shanyidai.api.application.Server</mainClass>
+                                </transformer>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                                    <resource>META-INF/spring.handlers</resource>
+                                </transformer>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                                    <resource>META-INF/spring.schemas</resource>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

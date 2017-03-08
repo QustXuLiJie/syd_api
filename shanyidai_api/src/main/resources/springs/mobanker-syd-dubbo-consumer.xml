@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://code.alibabatech.com/schema/dubbo
+            http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:reference id="messageDubboService"
+                     interface="com.mobanker.shanyidai.dubbo.service.message.MessageDubboService"
+                     timeout="10000" check="false" version="1.0.1"/>
+    <dubbo:reference id="accountDubboService"
+                     interface="com.mobanker.shanyidai.dubbo.service.user.AccountDubboService" timeout="10000"
+                     check="false" version="1.0.1"/>
+    <dubbo:reference id="userSessionService"
+                     interface="com.mobanker.shanyidai.dubbo.service.user.UserSessionService" timeout="10000"
+                     check="false" version="1.0.1"/>
+
+    <dubbo:reference id="dubboUserService"
+                     interface="com.mobanker.shanyidai.dubbo.service.user.UserDubboService" timeout="10000"
+                     check="false" version="1.0.1"/>
+
+    <dubbo:reference id="dubboUserAuthService"
+                     interface="com.mobanker.shanyidai.dubbo.service.auth.AuthDubboService" timeout="10000"
+                     check="false" version="1.0.1"/>
+
+    <dubbo:reference id="dubboUserContactService"
+                     interface="com.mobanker.shanyidai.dubbo.service.user.UserContactDubboService" timeout="10000"
+                     check="false" version="1.0.1"/>
+    <dubbo:reference interface="com.mobanker.shanyidai.dubbo.service.user.BankCardDubboService"
+                     id="bankCardDubboService" timeout="10000" check="false" version="1.0.1"/>
+
+    <dubbo:reference id="dubboProductService"
+                     interface="com.mobanker.shanyidai.dubbo.service.product.ProductDubboService" timeout="10000"
+                     check="false" version="1.0.1"/>
+    <!--借还款-->
+    <dubbo:reference id="payBackDubboService"
+                     interface="com.mobanker.shanyidai.dubbo.service.payback.PayBackDubboService" timeout="10000"
+                     check="false" version="1.0.1"/>
+
+    <dubbo:reference id="dubboBorrowService"
+                     interface="com.mobanker.shanyidai.dubbo.service.borrow.BorrowDubboService"
+                     timeout="10000" check="false" version="1.0.1"/>
+
+    <dubbo:reference interface="com.mobanker.shanyidai.dubbo.service.upload.UploadFileDubboService"
+                     id="uploadFileService" timeout="10000" check="false" version="1.0.1"/>
+
+    <!-- 数据字典 -->
+    <dubbo:reference interface="com.mobanker.shanyidai.dubbo.service.system.DataDictionaryDubboService"
+                     id="dubboDictionaryService" timeout="10000" check="false" version="1.0.1"/>
+    <!-- 日志记录 -->
+    <dubbo:reference interface="com.mobanker.shanyidai.dubbo.service.log.ApiServiceLogDubboService"
+                     id="apiServiceLogDubboService" timeout="10000" check="false" version="1.0.1"/>
+
+    <!-- 基本数据 -->
+    <dubbo:reference id="baseDataDubboService"
+                     interface="com.mobanker.shanyidai.dubbo.service.basedata.BaseDataDubboService" timeout="10000"
+                     check="false" version="1.0.1"/>
+    <!-- 数据采集 -->
+    <dubbo:reference interface="com.mobanker.shanyidai.dubbo.service.gather.GatherDubboService"
+                     id="gatherDubboService" timeout="10000" check="false" version="1.0.1"/>
+
+    <dubbo:reference interface="com.mobanker.shanyidai.dubbo.service.auth.RecognizeDubboService"
+                     id="recognizeDubboService" timeout="10000" check="false" version="1.0.1"/>
+
+    <!-- 用户默认入账银行卡 -->
+    <dubbo:reference interface="com.mobanker.shanyidai.dubbo.service.system.UserDefaultBankDubboService"
+                     id="defaultBankDubboService" timeout="10000" check="false" version="1.0.1"/>
+  <!-- 人脸识别 -->
+    <dubbo:reference interface="com.mobanker.shanyidai.dubbo.service.auth.AuthFaceDubboService"
+                     id="authFaceDubboService" timeout="10000" check="false" version="1.0.1"/>
+    <!-- 版本更新-->
+    <dubbo:reference interface="com.mobanker.shanyidai.dubbo.service.version.VersionDubboService"
+                     id="versionDubboService" timeout="10000" check="false" version="1.0.1"/>
+
+</beans>

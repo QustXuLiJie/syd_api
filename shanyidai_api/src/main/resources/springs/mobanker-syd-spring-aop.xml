@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<bean class="com.mobanker.framework.tracking.EEAspect" />
+
+	<aop:config />
+	<!-- enable @AspectJ support with XML based configuration -->
+	<aop:aspectj-autoproxy />
+	
+	<context:annotation-config />
+	<!-- 扫描framework包下的注解配置-->
+	<context:component-scan base-package="com.mobanker.framework.mybatis.**,com.mobanker.framework.bussiness.**">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+	<!--扫描全局uuid-->
+	<!--<context:component-scan base-package="com.mobanker.framework.uuid"/>-->
+
+	<!-- 启动包扫描功能，以便注册带有@Controller、@Service、@repository、@Component等注解的类成为spring的bean -->
+	<context:component-scan base-package="com.mobanker.shanyidai.api.**">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+</beans>
